@@ -38,13 +38,21 @@ An end-to-end computer vision project that classifies electronic waste across 10
 Ensure Python 3.9+ is installed on your machine. Install the required runtime libraries:
 ```bash
 pip install opencv-python pillow numpy tensorflow
+```
 
-2. Execution
-Run the webcam detection script from your project directory:
+### 2. Execution
+Navigate to your project directory and launch the webcam script:
 
-Bash
+```bash
 python run_demo.py
+```
 
-3. Usage Guidelines
-The script opens your webcam and renders a green Center Inspection Box .Hold an electronic item (or an image displayed on a phone screen) inside the green box.Tip for phone displays: Reduce screen brightness to ~40–50% to prevent camera glare from washing out component details.Press q at any time to close the stream and free system memory.
+*(The script will automatically detect and load `model_float32.tflite` or `model_quantized_int8.tflite` from the same folder).*
+
+### 3. Usage Guidelines
+- **Target Inspection Area**: The webcam interface renders a centered 280 × 280 pixel green target box on the video stream to isolate the item from room background noise.
+- **Positioning**: Hold an electronic item (keyboard, mouse, mobile phone, battery, etc.) directly inside the target box.
+- **Testing via Phone Screen**: If showing photos displayed on a smartphone screen, reduce phone screen brightness to ~40–50% and tilt the device slightly to eliminate camera glare and reflections.
+- **Real-Time Readout**: The top banner displays the predicted class, confidence percentage, and inference latency per frame.
+- **Exit**: Press **`q`** on your keyboard at any time to close the camera window and release memory safely.
 
